@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Peddy - Pet Adoption Platform</title>
+
+    <!-- daisy UI cdn -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.12.12/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <!-- tailwindcss cdn -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- main css link -->
+    <link rel="stylesheet" href="./css/main.css" />
+
+    <!-- google font cdn -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- tailwind config -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              lato: ["Lato", "sans-serif"],
+            },
+            colors: {
+              primaryColor: "#0E7A81",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="font-lato">
+    <!-- header area -->
+    <header>
+      <!-- navbar -->
+      <div class="navbar shadow-sm">
+        <div class="navbar-start">
+          <a href="#" class="flex gap-3">
+            <img
+              class="object-contain w-9"
+              src="./images/logo.png"
+              alt="logo"
+            />
+            <span class="text-4xl text-black font-extrabold">Peddy</span>
+          </a>
+        </div>
+        <div class="navbar-center hidden sm:flex">
+          <ul class="menu menu-horizontal px-1">
+            <li><a class="text-base text-gray-500" href="http://">Home</a></li>
+            <li><a class="text-base text-gray-500" href="http://">Shop</a></li>
+            <li>
+              <a class="text-base text-gray-500" href="http://">Contact</a>
+            </li>
+          </ul>
+        </div>
+        <div class="navbar-end">
+          <div>
+            <div
+              class="w-10 h-10 border border-gray-300 rounded-full flex justify-center items-center"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- banner area -->
+      <section class="py-10">
+        <div class="container mx-auto px-3">
+          <div class="flex flex-col gap-y-14 justify-center items-center">
+            <div class="text-center w-full space-y-4 max-w-3xl">
+              <h4 class="font-semibold text-gray-600 text-xl md:text-2xl">
+                Bringing Families Together
+              </h4>
+              <h1
+                class="lg:text-7xl text-3xl sm:text-5xl md:text-6xl font-extrabold leading-tight"
+              >
+                Your Journey to Pet Adoption Starts Here
+              </h1>
+              <p class="text-gray-500 text-base">
+                Discover the joy of companionship by giving a pet a forever
+                home. Explore our wide range of lovable animals waiting to
+                become part of your family today!
+              </p>
+
+              <button>
+                <a
+                  class="mt-8 bg-primaryColor inline-block text-xl font-bold text-white px-8 py-3 md:py-4 rounded-xl"
+                  href="#petCollection"
+                  >View More</a
+                >
+              </button>
+            </div>
+
+            <!-- banner image -->
+            <div>
+              <img src="./images/pet.png" alt="banner" />
+            </div>
+          </div>
+        </div>
+      </section>
+    </header>
+
+    <!-- main area -->
+    <main class="container mx-auto px-3">
+      <!-- adopt your best frient -->
+      <section id="petCollection" class="py-5">
+        <!-- heading -->
+        <div class="max-w-2xl w-full space-y-4 text-center mx-auto mb-14">
+          <h2 class="text-4xl font-extrabold">Adopt Your Best Friend</h2>
+          <p class="text-base text-gray-600">
+            Find a loyal and loving companion who will stand by your side
+            through every adventure, bringing joy and comfort to your life.
+          </p>
+        </div>
+
+        <!-- category button container -->
+
+        <div
+          id="categoryBtnContainer"
+          class="max-w-4xl mx-auto w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5"
+        ></div>
+
+        <!-- pet collection  -->
+        <div class="mt-14">
+          <!-- top bar -->
+          <div class="flex justify-between items-center">
+            <h4 class="text-lg md:text-2xl font-extrabold">
+              Best Deal For You
+            </h4>
+            <button
+              id="sortPets"
+              type="button"
+              class="px-4 py-2 rounded-xl bg-primaryColor text-white transition-colors duration-200 hover:bg-teal-600 text-lg md:text-xl font-bold"
+            >
+              Sort by Price
+            </button>
+          </div>
+
+          <!-- collection container -->
+          <div class="grid grid-cols-12 gap-y-5 lg:gap-y-0 mt-5">
+            <!-- cards container -->
+            <div
+              id="petContainer"
+              class="col-span-12 lg:col-span-8 overflow-y-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+            ></div>
+
+            <!-- show liked pets -->
+            <div
+              class="col-span-12 lg:col-start-10 lg:col-span-12 border rounded-xl h-fit"
+            >
+              <div id="likedPetContainer" class="grid grid-cols-2 gap-4 p-2">
+                <h2 class="col-span-full text-lg text-center py-3 font-bold">
+                  Your Favourites
+                </h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- modal  -->
+    <div
+      id="modalContainer"
+      class="fixed inset-0 bg-slate-500 py-3 opacity-0 pointer-events-none -z-10 overflow-y-auto bg-opacity-50 flex justify-center items-center px-3"
+    ></div>
+
+    <!-- footer  -->
+
+    <footer class="bg-slate-900 px-4 lg:px-36 py-24 mt-8">
+      <div class="container mx-auto">
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 items-start justify-items-center gap-y-14"
+        >
+          <div
+            class="text-center md:text-left md:items-start flex flex-col justify-center items-center"
+          >
+            <a href="#" class="flex gap-3 mb-8">
+              <img
+                class="object-contain w-9"
+                src="./images/logo.png"
+                alt="logo"
+              />
+              <span class="text-4xl text-white font-extrabold">Peddy</span>
+            </a>
+
+            <ul class="text-base text-[#FFFFFFE6] space-y-2">
+              <li>Location: av. Washington 165, NY CA 54003</li>
+              <li>Phone: +31 85 964 47 25</li>
+              <li>Email: info@yourdomain.com</li>
+              <li>Openings hours: 9.00 AM - 5.00 PM</li>
+            </ul>
+            <div class="flex gap-4 !mt-4">
+              <a href="#">
+                <img src="./images/fb.png" alt="facebook" />
+              </a>
+              <a href="#">
+                <img src="./images/x.png" alt="x" />
+              </a>
+              <a href="#">
+                <img src="./images/youtube.png" alt="youtube" />
+              </a>
+              <a href="#">
+                <img src="./images/instragram.png" alt="instragram" />
+              </a>
+            </div>
+          </div>
+
+          <div
+            class="text-center lg:text-left lg:items-start flex flex-col justify-center items-center"
+          >
+            <h3 class="mb-8 text-lg font-bold text-[#FFFFFFE6]">
+              Useful Links
+            </h3>
+            <ul class="text-[#FFFFFFE6] text-base space-y-3">
+              <li>
+                <a href="#"> Home </a>
+              </li>
+              <li>
+                <a href="#"> About Us </a>
+              </li>
+              <li>
+                <a href="#"> Animals </a>
+              </li>
+              <li>
+                <a href="#"> Foundation </a>
+              </li>
+              <li>
+                <a href="#"> Contact </a>
+              </li>
+            </ul>
+          </div>
+
+          <div
+            class="text-center md:text-left md:items-start flex flex-col justify-center items-center"
+          >
+            <h3 class="text-[#FFFFFFE6] font-bold text-lg mb-8">
+              Drop a Message
+            </h3>
+            <div>
+              <input
+                class="block px-4 py-3 rounded-xl bg-[#FFFFFF0D] text-base text-[#FFFFFFE6]"
+                type="email"
+                placeholder="Enter your email"
+              />
+
+              <input
+                class="px-8 py-3 rounded-lg bg-primaryColor text-xl font-bold text-white w-full mt-4 cursor-pointer"
+                type="submit"
+                value="Subscribe"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./js/script.js"></script>
+  </body>
+</html>
